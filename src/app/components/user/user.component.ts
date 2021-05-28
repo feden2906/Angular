@@ -6,14 +6,7 @@ import {User} from "../../models/User";
   templateUrl: './user.component.html',
   styleUrls: ['./user.component.scss']
 })
-export class UserComponent implements OnInit {
-
+export class UserComponent {
   @Input()
   user: User
-
-  constructor() { }
-
-  ngOnInit(): void {
-  }
-
 }

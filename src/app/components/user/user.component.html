@@ -1,5 +1,7 @@
-<p>
+<h3>
   {{user.id}}.
   {{user.name}};
   {{user.email}};
-</p>
+</h3>
+  <h3>Posts:   </h3>
+<app-posts [userId] = user.id></app-posts>

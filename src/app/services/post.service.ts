@@ -8,13 +8,13 @@ import {Post} from "../models/Post";
 })
 export class PostService {
 
-  private url: string = "https://jsonplaceholder.typicode.com/posts";
+  private url: string = "https://jsonplaceholder.typicode.com/posts?userId=";
 
   constructor(private httpClient: HttpClient) {
 
   }
 
-  getPosts(): Observable<Post[]> {
-    return this.httpClient.get<Post[]>(this.url);
+  getPosts(userId: number): Observable<Post[]> {
+    return this.httpClient.get<Post[]>(this.url + userId);
   }
 }

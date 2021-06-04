@@ -2,6 +2,8 @@
   {{user.id}}.
   {{user.name}};
   {{user.email}};
+  <button (click)="getUser()">User details</button>
+  <router-outlet></router-outlet>
 </h3>
   <h3>Posts:   </h3>
 <app-posts [userId] = user.id></app-posts>

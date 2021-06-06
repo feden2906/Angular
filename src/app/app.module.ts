@@ -1,17 +1,32 @@
 import {NgModule} from '@angular/core';
 import {BrowserModule} from '@angular/platform-browser';
-import {HttpClientModule} from "@angular/common/http";
 
-import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
-import {PostComponent, PostsComponent, UserComponent, UsersComponent, HomeComponent, UserDetailsComponent} from './components';
-import {PostService, UserService} from "./services";
-import {RouterModule} from "@angular/router";
+import {UsersComponent} from './components/users/users.component';
+import {HttpClientModule} from "@angular/common/http";
+import {UserComponent} from './components/user/user.component';
+import {RouterModule, Routes} from "@angular/router";
+import {UserDetailsComponent} from './components/user-details/user-details.component';
+import {PostsComponent} from './components/posts/posts.component';
+import {PostComponent} from './components/post/post.component';
+import {PostDetailsComponent} from './components/post-details/post-details.component';
+import {UsersResolveService} from "./services/resolvers/users.resolve.service";
+import {PostsResolveService} from "./services/resolvers/posts.resolve.service";
 
-const routes = [
-  {path: "users/:id", component: UserDetailsComponent},
-  {path: "users", component: UsersComponent},
-  {path: "home", component: HomeComponent}
+let routes: Routes = [
+  {
+    path: 'users', component: UsersComponent, resolve: {data: UsersResolveService},
+    children: [
+      {path: ':id', component: UserDetailsComponent}
+    ]
+  },
+
+  {
+    path: 'posts', component: PostsComponent, resolve: {data: PostsResolveService},
+    children: [
+      {path: ':id', component: PostDetailsComponent}
+    ]
+  }
 ];
 
 @NgModule({
@@ -19,21 +34,18 @@ const routes = [
     AppComponent,
     UsersComponent,
     UserComponent,
+    UserDetailsComponent,
     PostsComponent,
     PostComponent,
-    HomeComponent,
-    UserDetailsComponent
+    PostDetailsComponent,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
     HttpClientModule,
     RouterModule.forRoot(routes)
   ],
-  providers: [UserService, PostService ],
+  providers: [],
   bootstrap: [AppComponent]
 })
-
 export class AppModule {
-
 }

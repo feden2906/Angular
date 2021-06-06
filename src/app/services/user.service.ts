@@ -1,13 +1,13 @@
-import { Injectable } from '@angular/core';
-import {User} from "../models/User";
+import {Injectable} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
+import {User} from "../models/User";
 import {Observable} from "rxjs";
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
-  private url: string = "https://jsonplaceholder.typicode.com/users";
+  private url = 'https://jsonplaceholder.typicode.com/users';
 
   constructor(private httpClient: HttpClient) {
   }
@@ -15,7 +15,8 @@ export class UserService {
   getUsers(): Observable<User[]> {
     return this.httpClient.get<User[]>(this.url);
   }
-  getUser(id: number): Observable<User> {
+
+  getUser(id: number) : Observable<User> {
     return this.httpClient.get<User>(this.url + '/' + id);
   }
 }

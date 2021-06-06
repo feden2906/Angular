@@ -1,0 +1,8 @@
+.block {
+  display: flex;
+  justify-content: space-between;
+}
+
+.second-child {
+  max-width: 50%;
+}

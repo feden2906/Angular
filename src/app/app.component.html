@@ -1,4 +1,6 @@
-<a routerLink="users">Users</a><br><br>
-<a [routerLink]="['home']">Home</a>
-
+<div class="back">
+  <button style="margin-right: 60px"><a style="text-decoration: none" routerLink="users">Users</a></button>
+  <button><a [routerLink]="['posts']" style="text-decoration: none">Posts</a></button>
+</div>
 <router-outlet></router-outlet>
+

@@ -15,7 +15,7 @@ export class UserComponent {
   constructor(private router: Router, private activatedRoute: ActivatedRoute) {
   }
 
-  goToDetails(): void {
+  goToAllPosts(): void {
     this.router.navigate([this.user.id], {relativeTo: this.activatedRoute, state: this.user});
   }
 }

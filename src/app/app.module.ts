@@ -1,7 +1,6 @@
 import {NgModule} from '@angular/core';
 import {BrowserModule} from '@angular/platform-browser';
-import {PostsComponent,
-  PostComponent, AppComponent} from './components';
+import {AppComponent} from './components';
 import {HttpClientModule} from "@angular/common/http";
 import {RouterModule, Routes} from "@angular/router";
 
@@ -16,9 +15,7 @@ let routes: Routes = [
 
 @NgModule({
   declarations: [
-    AppComponent,
-    PostsComponent,
-    PostComponent,
+    AppComponent
   ],
   imports: [
     BrowserModule,
